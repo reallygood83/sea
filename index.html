@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>평촌초 교사용 수업 도구 </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header-nav">
+  <h1 class="page-title">평촌초 교사용 수업 도구</h1>
+  <nav class="nav-links">
+    <a href="https://hi.goe.go.kr" target="_blank" class="nav-btn">하이러닝</a>
+    <a href="https://www.hiclass.net/" target="_blank" class="nav-btn">Hiclass</a>
+  </nav>
+</header>
+<p style="text-align:center;">선생님 오늘 하루도 평안하세요❤️</p>
+
+  <!-- 전체 섹션을 감싸는 컨테이너 (드래그앤드롭용) -->
+  <div id="sectionsContainer">
+    <!-- 1. 칠판 -->
+    <div class="section" draggable="true">
+      <div class="section-header">
+        <span>수업 칠판</span>
+        <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+      </div>
+      <div class="section-content">
+        <div class="chalkboard-container">
+          <div class="text-tools">
+            <button id="boldBtn" title="굵게"><strong>B</strong></button>
+            <button id="italicBtn" title="기울임"><em>I</em></button>
+            <button id="underlineBtn" title="밑줄"><u>U</u></button>
+            <div class="divider"></div>
+            
+            <!-- 글자 크기: 작게(16px), 보통(18px), 크게(24px), 매우 크게(32px) -->
+            <select id="fontSizeSelector" title="글자 크기">
+              <option value="16px">작게</option>
+              <option value="18px" selected>보통</option>
+              <option value="24px">크게</option>
+              <option value="32px">매우 크게</option>
+            </select>
+            
+            <!-- 텍스트 색깔에 검정색 추가 -->
+            <select id="textColorSelector" title="글자 색상">
+              <option value="white">흰색</option>
+              <option value="black">검정색</option>
+              <option value="yellow">노란색</option>
+              <option value="lightblue">하늘색</option>
+              <option value="pink">분홍색</option>
+              <option value="#ffcc00">주황색</option>
+              <option value="#90ee90">연두색</option>
+            </select>
+            
+            <button id="highlightBtn" title="강조표시">형광펜</button>
+            <div class="divider"></div>
+            
+            <!-- 전체 지우기 -->
+            <button id="clearBtn" title="지우기">전체 지우기</button>
+            <button id="copyBtn" title="복사">복사</button>
+            <button id="youtubeEmbedBtn" title="유튜브 삽입">유튜브</button>
+          </div>
+          <div class="divider"></div>
+          <div class="chalkboard">
+            <div class="editor-container">
+              <div id="chalkboardEditor" contenteditable="true" spellcheck="false"
+                   placeholder="여기에 수업 내용을 적으세요...">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- 2. 오늘 날짜 & 시간표 -->
+<div class="section" draggable="true">
+  <div class="section-header">
+    <span>오늘 날짜 및 시간표</span>
+    <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+  </div>
+  <div class="section-content">
+    <div class="date-timetable-section">
+      <div class="date-timetable">
+        <strong>오늘 날짜:</strong> <span id="todayInfo"></span>
+      </div>
+      <div class="timetable-container">
+        <table class="timetable">
+          <thead>
+            <tr>
+              <th>1교시</th>
+              <th>2교시</th>
+              <th>3교시</th>
+              <th>4교시</th>
+              <th>5교시</th>
+              <th>6교시</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <!-- 1교시 -->
+              <td>
+                <select class="subjectSelector">
+                  <option>선택</option>
+                  <option>국어</option>
+                  <option>수학</option>
+                  <option>사회</option>
+                  <option>과학</option>
+                  <option>영어</option>
+                  <option>음악</option>
+                  <option>미술</option>
+                  <option>체육</option>
+                  <option>실과</option>
+                  <option>도덕</option>
+                  <option>학교</option>
+                  <option>사람들</option>
+                  <option>우리나라</option>
+                  <option>탐험</option>
+                  <option>나</option>
+                  <option>자연</option>
+                  <option>마을</option>
+                  <option>세계</option>
+                  <option>입력</option>
+                </select>
+                <input type="text" class="customSubject" style="display:none" placeholder="직접 입력"/>
+              </td>
+              <!-- 2교시 -->
+              <td>
+                <select class="subjectSelector">
+                  <option>선택</option>
+                  <option>국어</option>
+                  <option>수학</option>
+                  <option>사회</option>
+                  <option>과학</option>
+                  <option>영어</option>
+                  <option>음악</option>
+                  <option>미술</option>
+                  <option>체육</option>
+                  <option>실과</option>
+                  <option>도덕</option>
+                  <option>학교</option>
+                  <option>사람들</option>
+                  <option>우리나라</option>
+                  <option>탐험</option>
+                  <option>나</option>
+                  <option>자연</option>
+                  <option>마을</option>
+                  <option>세계</option>
+                  <option>입력</option>
+                </select>
+                <input type="text" class="customSubject" style="display:none" placeholder="직접 입력"/>
+              </td>
+              <!-- 3교시 -->
+              <td>
+                <select class="subjectSelector">
+                  <option>선택</option>
+                  <option>국어</option>
+                  <option>수학</option>
+                  <option>사회</option>
+                  <option>과학</option>
+                  <option>영어</option>
+                  <option>음악</option>
+                  <option>미술</option>
+                  <option>체육</option>
+                  <option>실과</option>
+                  <option>도덕</option>
+                  <option>학교</option>
+                  <option>사람들</option>
+                  <option>우리나라</option>
+                  <option>탐험</option>
+                  <option>나</option>
+                  <option>자연</option>
+                  <option>마을</option>
+                  <option>세계</option>
+                  <option>입력</option>
+                </select>
+                <input type="text" class="customSubject" style="display:none" placeholder="직접 입력"/>
+              </td>
+              <!-- 4교시 -->
+              <td>
+                <select class="subjectSelector">
+                  <option>선택</option>
+                  <option>국어</option>
+                  <option>수학</option>
+                  <option>사회</option>
+                  <option>과학</option>
+                  <option>영어</option>
+                  <option>음악</option>
+                  <option>미술</option>
+                  <option>체육</option>
+                  <option>실과</option>
+                  <option>도덕</option>
+                  <option>학교</option>
+                  <option>사람들</option>
+                  <option>우리나라</option>
+                  <option>탐험</option>
+                  <option>나</option>
+                  <option>자연</option>
+                  <option>마을</option>
+                  <option>세계</option>
+                  <option>입력</option>
+                </select>
+                <input type="text" class="customSubject" style="display:none" placeholder="직접 입력"/>
+              </td>
+              <!-- 5교시 -->
+              <td>
+                <select class="subjectSelector">
+                  <option>선택</option>
+                  <option>국어</option>
+                  <option>수학</option>
+                  <option>사회</option>
+                  <option>과학</option>
+                  <option>영어</option>
+                  <option>음악</option>
+                  <option>미술</option>
+                  <option>체육</option>
+                  <option>실과</option>
+                  <option>도덕</option>
+                  <option>학교</option>
+                  <option>사람들</option>
+                  <option>우리나라</option>
+                  <option>탐험</option>
+                  <option>나</option>
+                  <option>자연</option>
+                  <option>마을</option>
+                  <option>세계</option>
+                  <option>입력</option>
+                </select>
+                <input type="text" class="customSubject" style="display:none" placeholder="직접 입력"/>
+              </td>
+              <!-- 6교시 -->
+              <td>
+                <select class="subjectSelector">
+                  <option>선택</option>
+                  <option>국어</option>
+                  <option>수학</option>
+                  <option>사회</option>
+                  <option>과학</option>
+                  <option>영어</option>
+                  <option>음악</option>
+                  <option>미술</option>
+                  <option>체육</option>
+                  <option>실과</option>
+                  <option>도덕</option>
+                  <option>학교</option>
+                  <option>사람들</option>
+                  <option>우리나라</option>
+                  <option>탐험</option>
+                  <option>나</option>
+                  <option>자연</option>
+                  <option>마을</option>
+                  <option>세계</option>
+                  <option>입력</option>
+                </select>
+                <input type="text" class="customSubject" style="display:none" placeholder="직접 입력"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 스크립트: '입력' 선택 시 직접 입력 필드 표시 -->
+<script>
+  // 오늘 날짜 자동 표기 (예시)
+  document.getElementById('todayInfo').textContent = new Date().toLocaleDateString();
+
+  // '입력' 선택 시 해당 셀의 input 표시/숨기기
+  const selectors = document.querySelectorAll('.subjectSelector');
+  selectors.forEach(select => {
+    select.addEventListener('change', e => {
+      const input = select.nextElementSibling; // 바로 뒤에 있는 input
+      if (e.target.value === '입력') {
+        input.style.display = 'inline-block';
+      } else {
+        input.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+    </div>    <!-- perplexity검색 -->
+    <div class="section" draggable="true">
+      <div class="section-header">
+        <span>AI 검색(perplexity)</span>
+        <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+      </div>
+      <div class="section-content">
+        <div class="picker-section" style="padding: 20px;">
+          <div class="picker-controls" style="margin-bottom: 10px; flex-wrap: nowrap;">
+            <label for="perplexInput" style="margin-right: 5px;">질문:</label>
+            <input type="text" id="perplexInput" placeholder="무엇이든 질문하기.." style="flex:1; min-width:200px;"/>
+            <button id="perplexBtn" style="margin-left: 10px;">질문하기</button>
+          </div>
+          <p>Perplexity.ai 로 이동하여 검색 결과를 보실 수 있습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" draggable="true">
+      <div class="section-header">
+        <span>시간 관리</span>
+        <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+      </div>
+      <div class="section-content">
+        <div class="time-section">
+          <!-- 디지털 시계 -->
+          <div class="clock">
+            <h3>현재 시간</h3>
+            <div id="clockDisplay" class="time-display">00:00:00</div>
+            <div id="dateDisplay"></div>
+          </div>
+
+          <!-- 타이머 -->
+          <div class="timer">
+            <h3>수업 타이머</h3>
+            <div class="timer-inputs">
+              <input type="number" id="hoursInput" min="0" max="99" placeholder="시" style="width: 60px" />
+              <input type="number" id="minutesInput" min="0" max="59" placeholder="분" style="width: 60px" />
+              <input type="number" id="secondsInput" min="0" max="59" placeholder="초" style="width: 60px" />
+            </div>
+            <div id="timerDisplay" class="time-display">00:00:00</div>
+            <div class="timer-controls">
+              <button id="startTimerBtn" class="start-btn">시작</button>
+              <button id="stopTimerBtn" class="stop-btn">정지</button>
+              <button id="resetTimerBtn" class="reset-btn">초기화</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div id="sectionsContainer">
+    <!-- 안양 평촌초 학사일정 & 급식 -->
+    <div class="section" draggable="true">
+      <div class="section-header">
+        <span>안양양 평촌초 학사일정 & 급식</span>
+        <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+      </div>
+      <div class="section-content" style="padding: 20px;">
+        <h3>단위 선택</h3>
+        <div class="unit-selection">
+          <label for="scheduleUnit">학사일정 단위:</label>
+          <select id="scheduleUnit">
+            <option value="day">일간</option>
+            <option value="week">주간</option>
+            <option value="month" selected>월간</option>
+          </select>
+          
+          <label for="mealUnit">급식 정보 단위:</label>
+          <select id="mealUnit">
+            <option value="day">일간</option>
+            <option value="week">주간</option>
+            <option value="month" selected>월간</option>
+          </select>
+        </div>
+
+        <h3>학사일정</h3>
+        <button id="fetchScheduleBtn">학사일정 불러오기</button>
+        <div id="scheduleResult" class="result-area"></div>
+
+        <hr style="margin:20px 0;" />
+
+        <h3>급식정보</h3>
+        <button id="fetchMealsBtn">급식정보 불러오기</button>
+        <div id="mealsResult" class="result-area"></div>
+      </div>
+    </div>
+
+  </div> <!-- sectionsContainer end -->
+
+    <!-- 4. 학생 뽑기 -->
+    <div class="section" draggable="true">
+      <div class="section-header">
+        <span>학생 뽑기</span>
+        <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+      </div>
+      <div class="section-content">
+        <div class="picker-section">
+          <div class="picker-controls">
+            <div>
+              <label for="totalStudents">학생 총 수:</label>
+              <input type="number" id="totalStudents" min="1" value="30" />
+            </div>
+            <div>
+              <label for="pickCount">뽑을 학생 수:</label>
+              <input type="number" id="pickCount" min="1" value="1" />
+            </div>
+            <button id="pickStudentsBtn">학생 뽑기</button>
+            <button id="resetPickerBtn">초기화</button>
+          </div>
+          <div id="pickerResult" class="result-area">
+            <p>학생을 뽑으면 결과가 여기에 표시됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. 모둠 편성 -->
+    <div class="section" draggable="true">
+      <div class="section-header">
+        <span>모둠 편성</span>
+        <button class="toggle-btn" aria-label="toggle">접기/펼치기</button>
+      </div>
+      <div class="section-content">
+        <div class="picker-section">
+          <div class="picker-controls">
+            <div>
+              <label for="teamTotalStudents">학생 총 수:</label>
+              <input type="number" id="teamTotalStudents" min="1" value="30" />
+            </div>
+            <div>
+              <label for="missingNumbers">없는 번호:</label>
+              <input type="text" id="missingNumbers" placeholder="예: 3, 7, 15" style="width:120px"/>
+            </div>
+            <div>
+              <label for="groupCount">모둠 수:</label>
+              <input type="number" id="groupCount" min="1" value="4" />
+            </div>
+            <button id="makeTeamsBtn">모둠 짜기</button>
+            <button id="resetTeamsBtn">초기화</button>
+          </div>
+          <div id="teamsResult" class="result-area">
+            <p>모둠 편성 결과가 여기에 표시됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- sectionsContainer end -->
+
+  <script>
+    // -----------------------------
+    // (A) 접었다 펴기 기능
+    // -----------------------------
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((sec) => {
+      const header = sec.querySelector('.section-header');
+      const toggleBtn = sec.querySelector('.toggle-btn');
+      const content = sec.querySelector('.section-content');
+      if (header && content && toggleBtn) {
+        header.addEventListener('click', () => {
+          // toggle content
+          content.classList.toggle('hidden');
+        });
+      }
+    });
+
+    // -----------------------------
+    // (B) 섹션 Drag & Drop 기능
+    // -----------------------------
+    const container = document.getElementById('sectionsContainer');
+    let draggedSection = null;
+
+    // 모든 .section 요소에 대해, dragstart / dragend / dragover / drop 핸들러 설정
+    sections.forEach((section) => {
+      // 드래그 시작
+      section.addEventListener('dragstart', (e) => {
+        draggedSection = section;
+        section.style.opacity = '0.4'; // 시각적 효과
+      });
+
+      // 드래그 끝
+      section.addEventListener('dragend', (e) => {
+        draggedSection = null;
+        section.style.opacity = '1';
+      });
+
+      // 드래그 중, 다른 섹션 위에 오면
+      section.addEventListener('dragover', (e) => {
+        e.preventDefault(); // drop 이벤트 허용
+      });
+
+      // 드롭
+      section.addEventListener('drop', (e) => {
+        e.preventDefault();
+        if (!draggedSection) return;
+        if (draggedSection === section) return; // 자기 자신 위라면 무시
+
+        // 마우스 위치와 섹션의 중간 지점을 비교해, draggedSection을 section 위로/아래로 놓을지 결정
+        const rect = section.getBoundingClientRect();
+        const midY = rect.top + rect.height / 2;
+        const dropY = e.clientY;
+
+        if (dropY < midY) {
+          // 섹션 중앙보다 위쪽 => draggedSection을 section 앞에
+          container.insertBefore(draggedSection, section);
+        } else {
+          // 아래쪽 => section 다음에
+          container.insertBefore(draggedSection, section.nextSibling);
+        }
+      });
+    });
+
+    // -----------------------------
+    // 1. 칠판 기능
+    // -----------------------------
+    const chalkboardEditor = document.getElementById('chalkboardEditor');
+    const boldBtn = document.getElementById('boldBtn');
+    const italicBtn = document.getElementById('italicBtn');
+    const underlineBtn = document.getElementById('underlineBtn');
+    const fontSizeSelector = document.getElementById('fontSizeSelector');
+    const textColorSelector = document.getElementById('textColorSelector');
+    const highlightBtn = document.getElementById('highlightBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const copyBtn = document.getElementById('copyBtn');
+
+    boldBtn.addEventListener('click', () => {
+      document.execCommand('bold', false, null);
+      chalkboardEditor.focus();
+    });
+    italicBtn.addEventListener('click', () => {
+      document.execCommand('italic', false, null);
+      chalkboardEditor.focus();
+    });
+    underlineBtn.addEventListener('click', () => {
+      document.execCommand('underline', false, null);
+      chalkboardEditor.focus();
+    });
+
+    // 폰트 크기 (작게~매우 크게)
+    // execCommand('fontSize', false, ...)는 정수값(1~7)만 받으므로, px -> 숫자 매핑
+    const sizeMap = {
+      '16px': '2', // 작게
+      '18px': '3', // 보통
+      '24px': '5', // 크게
+      '32px': '7', // 매우 크게
+    };
+
+    fontSizeSelector.addEventListener('change', () => {
+      const chosenPx = fontSizeSelector.value;
+      const commandValue = sizeMap[chosenPx] || '3';
+      // 1) execCommand로 임시 font size 설정
+      document.execCommand('fontSize', false, commandValue);
+
+      // 2) 방금 적용된 <font size="commandValue"> 요소들을 찾아 style.fontSize로 치환
+      const selection = window.getSelection();
+      if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        if (!range.collapsed) {
+          const clonedContents = range.cloneContents();
+          const elements = clonedContents.querySelectorAll('font[size="' + commandValue + '"]');
+          for (let i = 0; i < elements.length; i++) {
+            elements[i].removeAttribute('size');
+            elements[i].style.fontSize = chosenPx;
+          }
+          range.deleteContents();
+          range.insertNode(clonedContents);
+        }
+      }
+      chalkboardEditor.focus();
+    });
+
+    // 글자 색
+    textColorSelector.addEventListener('change', () => {
+      document.execCommand('foreColor', false, textColorSelector.value);
+      chalkboardEditor.focus();
+    });
+
+    // 형광펜 (배경색)
+    highlightBtn.addEventListener('click', () => {
+      document.execCommand('hiliteColor', false, 'yellow');
+      chalkboardEditor.focus();
+    });
+
+    // 전체 지우기
+    clearBtn.addEventListener('click', () => {
+      chalkboardEditor.innerHTML = '';
+    });
+
+    // 복사 버튼
+    copyBtn.addEventListener('click', () => {
+      /* TODO: Confirm with user: if environment blocks navigator.clipboard, fallback is used. Is that expected? */
+      const text = chalkboardEditor.innerText || chalkboardEditor.textContent;
+      // Attempt newer API first
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+          .then(() => alert('칠판 내용이 복사되었습니다!'))
+          .catch(err => {
+            console.error('Clipboard API error:', err);
+            fallbackCopy(text);
+          });
+      } else {
+        fallbackCopy(text);
+      }
+    });
+
+    // Older fallback method
+    function fallbackCopy(str) {
+      try {
+        const temp = document.createElement('textarea');
+        temp.value = str;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        alert('칠판 내용이 복사되었습니다! (fallback)');
+      } catch (err) {
+        console.error('Fallback copy error:', err);
+        alert('복사에 실패했습니다.');
+      }
+    }
+    function embedYoutubeIntoChalkboard(youtubeUrl, width, height) {
+  let videoId = '';
+  const regexShort = /youtu\.be\/(.+)/;
+  const regexLong  = /v=([^&]+)/;
+
+  if (regexShort.test(youtubeUrl)) {
+    videoId = youtubeUrl.match(regexShort)[1].split('?')[0];
+  } else if (regexLong.test(youtubeUrl)) {
+    videoId = youtubeUrl.match(regexLong)[1];
+  } else {
+    alert('유효한 유튜브 주소가 아닙니다.');
+    return;
+  }
+
+  const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+  const iframeHtml = `
+    <div class="youtube-embed" style="width:${width}; height:${height};">
+      <iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
+    </div>
+  `;
+
+  chalkboardEditor.innerHTML += iframeHtml;
+}
+
+// 버튼 이벤트
+const youtubeEmbedBtn = document.getElementById('youtubeEmbedBtn');
+youtubeEmbedBtn.addEventListener('click', () => {
+  const url = prompt('유튜브 링크를 입력하세요.\n예) https://youtu.be/xxxxx');
+  if (!url) return;
+
+  // 사용자에게 크기 입력받기
+  let width = prompt('동영상의 너비를 입력하세요 (예: 600px 또는 100%)', '100%');
+  if (!width) width = '100%';
+  
+  let height = prompt('동영상의 높이를 입력하세요 (예: 300px 또는 auto)', 'auto');
+  if (!height) height = 'auto';
+
+  embedYoutubeIntoChalkboard(url.trim(), width, height);
+});
+
+    // -----------------------------
+    // 2. 오늘 날짜 및 시간표
+    // -----------------------------
+    const todayInfo = document.getElementById('todayInfo');
+    function formatKoreanDate(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+      const weekdays = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+      const weekday = weekdays[date.getDay()];
+      return `${year}년 ${month}월 ${day}일 ${weekday}`;
+    }
+    todayInfo.textContent = formatKoreanDate(new Date());
+
+    const subjectColors = {
+      '국어': '#ffe0e0',
+      '수학': '#e0ffe0',
+      '사회': '#e0e0ff',
+      '과학': '#ffe0ff',
+      '영어': '#fffee0',
+      '음악': '#e0ffff',
+      '미술': '#ffffe0',
+      '체육': '#d6f5d6',
+      '실과': '#ffd5ec',
+      '도덕': '#e3ffd5',
+      '윤리': '#f3d5ff',
+      '역사': '#fff0c5',
+      '가정': '#fce0ff',
+      '기술': '#d5fff0'
+    };
+    const subjectSelectors = document.querySelectorAll('.subjectSelector');
+    subjectSelectors.forEach((sel) => {
+      sel.addEventListener('change', function () {
+        const parentCell = sel.closest('td');
+        const customInput = parentCell.querySelector('.customSubject');
+        const selectedValue = this.value;
+        if (selectedValue === '입력') {
+          customInput.style.display = 'block';
+          parentCell.style.backgroundColor = '';
+        } else {
+          customInput.style.display = 'none';
+          parentCell.style.backgroundColor = subjectColors[selectedValue] || '#ffffcc';
+        }
+      });
+    });
+
+    // -----------------------------
+    // 3. 디지털 시계 & 타이머 기능 + 사운드
+    // -----------------------------
+    const clockDisplay = document.getElementById('clockDisplay');
+    const dateDisplay = document.getElementById('dateDisplay');
+
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      clockDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      dateDisplay.textContent = now.toLocaleDateString('ko-KR', options);
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    const hoursInput = document.getElementById('hoursInput');
+    const minutesInput = document.getElementById('minutesInput');
+    const secondsInput = document.getElementById('secondsInput');
+    const timerDisplay = document.getElementById('timerDisplay');
+    const startTimerBtn = document.getElementById('startTimerBtn');
+    const stopTimerBtn = document.getElementById('stopTimerBtn');
+    const resetTimerBtn = document.getElementById('resetTimerBtn');
+
+    function playBeep() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!window.beepContext) {
+        window.beepContext = new AudioContext();
+      }
+      const ctx = window.beepContext;
+      const oscillator = ctx.createOscillator();
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(440, ctx.currentTime);
+      const gainNode = ctx.createGain();
+      gainNode.gain.value = 0.2;
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+      oscillator.start();
+      setTimeout(() => {
+        oscillator.stop();
+      }, 500);
+    }
+
+    let timerInterval;
+    let timerSeconds = 0;
+
+    function updateTimerDisplay() {
+      const hours = Math.floor(timerSeconds / 3600);
+      const minutes = Math.floor((timerSeconds % 3600) / 60);
+      const seconds = timerSeconds % 60;
+      timerDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    startTimerBtn.addEventListener('click', () => {
+      if (!timerInterval) {
+        if (timerSeconds === 0) {
+          const h = parseInt(hoursInput.value) || 0;
+          const m = parseInt(minutesInput.value) || 0;
+          const s = parseInt(secondsInput.value) || 0;
+          timerSeconds = h * 3600 + m * 60 + s;
+          if (timerSeconds === 0) return;
+        }
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            playBeep();
+            alert('타이머가 종료되었습니다!');
+          }
+        }, 1000);
+      }
+    });
+
+    stopTimerBtn.addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    });
+
+    resetTimerBtn.addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      hoursInput.value = '';
+      minutesInput.value = '';
+      secondsInput.value = '';
+      timerSeconds = 0;
+      updateTimerDisplay();
+    });
+
+    // Perplexity 검색 로직
+    const perplexBtn = document.getElementById('perplexBtn');
+    const perplexInput = document.getElementById('perplexInput');
+    if (perplexBtn && perplexInput) {
+      perplexBtn.addEventListener('click', () => {
+        const query = encodeURIComponent(perplexInput.value.trim());
+        if (!query) {
+          alert('검색어를 입력하세요!');
+          return;
+        }
+        const perplexUrl = `https://www.perplexity.ai/?q=${query}`;
+        window.open(perplexUrl, '_blank');
+      });
+    }
+
+    // -----------------------------
+    // (1) 학사일정 불러오기 (단위에 맞춰서)
+    // -----------------------------
+    const fetchScheduleBtn = document.getElementById('fetchScheduleBtn');
+    const scheduleResult = document.getElementById('scheduleResult');
+
+    fetchScheduleBtn.addEventListener('click', async () => {
+      const scheduleUnit = document.getElementById('scheduleUnit').value; // 사용자가 선택한 단위
+      let startDate, endDate;
+
+      // 단위에 따라 날짜 범위 설정
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      
+      if (scheduleUnit === 'day') {
+        startDate = `${year}${month}${day}`;
+        endDate = startDate;
+      } else if (scheduleUnit === 'week') {
+        const weekStart = new Date(today.setDate(today.getDate() - today.getDay())); // 주 시작 날짜
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 6); // 주 종료 날짜
+        startDate = `${weekStart.getFullYear()}${String(weekStart.getMonth() + 1).padStart(2, '0')}${String(weekStart.getDate()).padStart(2, '0')}`;
+        endDate = `${weekEnd.getFullYear()}${String(weekEnd.getMonth() + 1).padStart(2, '0')}${String(weekEnd.getDate()).padStart(2, '0')}`;
+      } else {
+        startDate = `${year}${month}01`;
+        endDate = `${year}${month}31`; // 해당 월 전체 날짜
+      }
+
+      const scheduleUrl = `https://open.neis.go.kr/hub/SchoolSchedule?Type=json`
+        + `&KEY=cadc2f03764c4bba97ce5d8ddf6d10cb`
+        + `&ATPT_OFCDC_SC_CODE=J10`
+        + `&SD_SCHUL_CODE=7569047`
+        + `&AA_FROM_YMD=${startDate}`
+        + `&AA_TO_YMD=${endDate}`;
+
+      const res = await fetch(scheduleUrl);
+      if (!res.ok) throw new Error('학사일정 API 오류');
+
+      const data = await res.json();
+      if (!data.SchoolSchedule) {
+        scheduleResult.innerHTML = '학사일정 정보가 없습니다.';
+        return;
+      }
+
+      const rows = data.SchoolSchedule[1].row;
+      let html = '<ul>';
+      rows.forEach(item => {
+        html += `<li><strong>${item.AA_YMD}</strong> : ${item.EVENT_NM}</li>`;
+      });
+      html += '</ul>';
+      scheduleResult.innerHTML = html;
+    });
+
+    // -----------------------------
+// (2) 급식 정보 불러오기 (단위에 따라)
+// -----------------------------
+const fetchMealsBtn = document.getElementById('fetchMealsBtn');
+const mealsResult = document.getElementById('mealsResult');
+
+// 날짜를 'YYYYMMDD' 형식으로 포맷하는 함수
+const formatDate = (date) =>
+  `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`;
+
+fetchMealsBtn.addEventListener('click', async () => {
+  const mealUnit = document.getElementById('mealUnit').value; // 사용자가 선택한 단위
+  const today = new Date();
+
+  let startDate, endDate;
+
+  try {
+    // 선택한 단위에 따라 날짜 범위 설정
+    switch (mealUnit) {
+      case 'day':
+        startDate = endDate = formatDate(today);
+        break;
+      case 'week':
+        const weekStart = new Date(today.setDate(today.getDate() - today.getDay()));
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 6);
+        startDate = formatDate(weekStart);
+        endDate = formatDate(weekEnd);
+        break;
+      default:
+        startDate = `${today.getFullYear()}${String(today.getMonth() + 1).padStart(2, '0')}01`;
+        endDate = `${today.getFullYear()}${String(today.getMonth() + 1).padStart(2, '0')}31`;
+    }
+
+    const mealsUrl = `https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&KEY=cadc2f03764c4bba97ce5d8ddf6d10cb&ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7569022&MLSV_FROM_YMD=${startDate}&MLSV_TO_YMD=${endDate}`;
+    
+    const res = await fetch(mealsUrl);
+    if (!res.ok) throw new Error('급식 API 오류');
+
+    const data = await res.json();
+    if (!data.mealServiceDietInfo) {
+      mealsResult.innerHTML = '급식 정보가 없습니다.';
+      return;
+    }
+
+    // 급식 정보 출력
+    const rows = data.mealServiceDietInfo[1].row;
+    const html = rows.map(meal => {
+      const dateStr = meal.MLSV_YMD;
+      const menus = meal.DDISH_NM.replace(/<br\/>/g, ', ');
+      return `<li><strong>${dateStr}</strong> : ${menus}</li>`;
+    }).join('');
+    mealsResult.innerHTML = `<ul>${html}</ul>`;
+  } catch (error) {
+    mealsResult.innerHTML = `급식 정보를 가져오는 중 오류 발생: ${error.message}`;
+  }
+});
+
+// -----------------------------
+// 4. 랜덤 학생 뽑기
+// -----------------------------
+const totalStudentsInput = document.getElementById('totalStudents');
+const pickCountInput = document.getElementById('pickCount');
+const pickStudentsBtn = document.getElementById('pickStudentsBtn');
+const resetPickerBtn = document.getElementById('resetPickerBtn');
+const pickerResult = document.getElementById('pickerResult');
+
+let pickedStudents = []; // 이미 뽑힌 학생 저장
+
+pickStudentsBtn.addEventListener('click', () => {
+  const totalStudents = parseInt(totalStudentsInput.value);
+  let pickCount = parseInt(pickCountInput.value);
+
+  // 입력값 검증
+  if (!totalStudents || totalStudents < 1 || !pickCount || pickCount < 1) {
+    alert('유효한 학생 수와 뽑을 수를 입력하세요.');
+    return;
+  }
+
+  // 이미 뽑힌 학생 제외하고 남은 학생 목록 생성
+  const availableStudents = Array.from({ length: totalStudents }, (_, i) => i + 1)
+    .filter(num => !pickedStudents.includes(num));
+
+  if (availableStudents.length === 0) {
+    alert('모든 학생이 이미 선택되었습니다. 초기화 버튼을 눌러주세요.');
+    return;
+  }
+
+  pickCount = Math.min(pickCount, availableStudents.length);
+
+  // 랜덤하게 학생 선택
+  const selectedStudents = availableStudents.sort(() => Math.random() - 0.5).slice(0, pickCount);
+  pickedStudents.push(...selectedStudents);
+
+  // 결과 출력
+  pickerResult.innerHTML = `
+    <p><strong>선택된 학생:</strong> ${selectedStudents.sort((a, b) => a - b).join(', ')}</p>
+    <p><strong>지금까지 선택된 학생:</strong> ${pickedStudents.sort((a, b) => a - b).join(', ')}</p>
+    <p><strong>남은 학생 수:</strong> ${totalStudents - pickedStudents.length}</p>`;
+});
+
+resetPickerBtn.addEventListener('click', () => {
+  pickedStudents = [];
+  pickerResult.innerHTML = '<p>학생을 뽑으면 결과가 여기에 표시됩니다.</p>';
+});
+
+// -----------------------------
+// 5. 모둠 편성
+// -----------------------------
+const makeTeamsBtn = document.getElementById('makeTeamsBtn');
+const resetTeamsBtn = document.getElementById('resetTeamsBtn');
+const teamTotalStudents = document.getElementById('teamTotalStudents');
+const missingNumbersInput = document.getElementById('missingNumbers');
+const groupCountInput = document.getElementById('groupCount');
+const teamsResult = document.getElementById('teamsResult');
+
+makeTeamsBtn.addEventListener('click', () => {
+  const total = parseInt(teamTotalStudents.value);
+  const groupCount = parseInt(groupCountInput.value);
+  const missingNums = missingNumbersInput.value
+    .split(',')
+    .map(num => parseInt(num.trim()))
+    .filter(num => num && num > 0 && num <= total);
+
+  if (!total || !groupCount || total < 1 || groupCount < 1) {
+    alert('총 학생 수와 모둠 수를 올바르게 입력하세요.');
+    return;
+  }
+
+  // 제외할 학생을 빼고 가능한 학생 목록 생성
+  const available = Array.from({ length: total }, (_, i) => i + 1).filter(num => !missingNums.includes(num));
+
+  if (available.length === 0) {
+    alert('사용 가능한 학생이 없습니다!');
+    return;
+  }
+
+  // 랜덤 셔플
+  available.sort(() => Math.random() - 0.5);
+
+  const teams = Array.from({ length: groupCount }, () => []);
+  available.forEach((student, idx) => {
+    teams[idx % groupCount].push(student);
+  });
+
+  // 결과 출력
+  const html = teams.map((team, idx) => 
+    `<p><strong>${idx + 1}모둠 (${team.length}명):</strong> ${team.sort((a, b) => a - b).join(', ')}</p>`
+  ).join('');
+  teamsResult.innerHTML = html;
+});
+
+resetTeamsBtn.addEventListener('click', () => {
+  teamTotalStudents.value = 30;
+  missingNumbersInput.value = '';
+  groupCountInput.value = 4;
+  teamsResult.innerHTML = '<p>모둠 편성 결과가 여기에 표시됩니다.</p>';
+});
+</script>
+
+<footer style="text-align: center; padding: 20px 0; background-color: #f8f8f8; border-top: 1px solid #ddd; margin-top: 40px;">
+  <p style="font-size: 1rem; color: #2a623d;">
+    <a href="https://pebble-stallion-abb.notion.site/1b210244f99780a19431c44075aa2c69?pvs=4" target="_blank" style="color: #2a623d; text-decoration: none;">개발자에 제안하기</a>
+  </p>
+  <p style="font-size: 1rem; color: #2a623d;">
+    &copy; 2025 <a href="https://pc-e.goeay.kr/pc-e/main.do" target="_blank" style="color: #2a623d; text-decoration: none;">평촌초등학교 교장 황경태</a>. All Rights Reserved.
+  </p>
+</footer>
+
+
